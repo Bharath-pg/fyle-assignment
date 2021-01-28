@@ -1,0 +1,19 @@
+<h1>Search Results</h1>
+<form action="{% url 'search_results' %}" method="get">
+    <input name="q" type="text" placeholder="Search...">
+  </form>
+<table border="1">
+    <hr>
+  {% for city in object_list %}
+
+ {{ city.name }}
+
+<h4>State</h4> {{ city.state }},
+<h4>IFSC</h4>  {{ city.ifsc}}, <h4>BRANCH</h4> {{ city.branch }},
+<h4>ADDRESS</h4>  {{ city.address }},<h4>DISTRICT</h4>  {{ city.district }},
+<h4>Bank ID</h4> {{city.bank_id}}
+<hr>
+    
+  {% endfor %}
+</table>
+</ul>
