@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView
 from .models import Branches
 from django.db.models import Q
 
+
 class PostListView(ListAPIView):
     serializer_class = BranchesSerialize
     filter_backends = [SearchFilter]
@@ -18,7 +19,7 @@ class SearchResultsView(ListView):
     template_name = 'search_results.html'
     
 
-    def get_queryset(self): # new
+    def get_queryset(self): 
         query = self.request.GET.get('q')
         object_list = Branches.objects.filter(
             Q(city__icontains=query) | Q(state__icontains=query) | 
