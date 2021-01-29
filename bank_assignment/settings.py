@@ -14,22 +14,17 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 load_dotenv()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'fyle-bankapi.herokuapp.com'
-]
+ALLOWED_HOSTS = [os.getenv('HOST')]
 
 
 # Application definition
@@ -60,7 +55,9 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    #Page size set to 5
     'PAGE_SIZE': 5,
+    #Search parameter set to q
     'SEARCH_PARAM': 'q',
 
 }
@@ -97,7 +94,7 @@ DATABASES = {
         'NAME': os.getenv("NAME"),
         'USER': os.getenv("USER"),
         'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': os.getenv("HOST"),
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }
