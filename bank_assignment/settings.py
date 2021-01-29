@@ -24,7 +24,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('HOST')]
+ALLOWED_HOSTS = [
+    'fyle-bankapi.herokuapp.com'
+    ]
 
 
 # Application definition
